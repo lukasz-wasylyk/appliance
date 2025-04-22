@@ -69,11 +69,11 @@ $(REPORTS):
 	-mkdir -p $(REPORTS)
 
 clean:
-        podman run --rm -it \
-                -v $(ASSETS):/assets:Z \
-                --privileged \
-                --net=host \
-                $(IMAGE) $@ --log-level $(LOG_LEVEL)
+	podman run --rm -it \
+		-v $(ASSETS):/assets:Z \
+		--privileged \
+		--net=host \
+		$(IMAGE) $@ --log-level $(LOG_LEVEL)
 	-rm -rf $(REPORTS)
 
 generate-mocks:
